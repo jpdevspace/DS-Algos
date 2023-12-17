@@ -1,0 +1,13 @@
+node_modules/
+
+build/
+
+# VSCode
+.vscode/*
+
+# Mac/OSX
+.DS_Store
+
+# Environments
+.env
+

@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "name": "ds-algos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "repository": {
+    "url": "https://github.com/jpdevspace/DS-Algos.git"
+  }
+}
