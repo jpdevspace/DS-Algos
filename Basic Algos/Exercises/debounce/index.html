@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounce</title>
+</head>
+<body>
+  <h1>Debounce v1</h1>
+  <form id="search">
+    <label for="keyword">Keyword</label>
+    <input id="keyword" type="text" name="keyword" placeholder="Please type in keyword...">
+    <button>Search</button>
+  </form>
+
+  <h2>Search term</h2>
+  <div id="query"></div>
+
+  <script>
+    const search = () => {
+      console.log(input.value);
+      clearTimeout(inputTimerId);
+    }
+
+    const startDebounce = () => {
+      if (inputTimerId) {
+        clearTimeout(inputTimerId);
+      }
+      
+      inputTimerId = setTimeout(search, 5000);
+    }
+    
+    // Grab all my elements
+    const button = document.querySelector('button');
+    const input = document.getElementById('keyword');
+    const result = document.getElementById('query');
+    
+    let inputTimerId;
+
+    input.addEventListener('keydown', startDebounce);
+
+  </script>
+</body>
+</html>
