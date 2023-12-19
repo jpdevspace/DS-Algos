@@ -44,3 +44,4 @@ const divisorOfStrings = (str1: string, str2: string): string => {
 };
 
 console.log("RESULT >>>", divisorOfStrings("ABABABAB", "ABAB"));
+console.log("RESULT >>>", divisorOfStrings("ABABAB", "ABAB"));
