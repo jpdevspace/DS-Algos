@@ -25,9 +25,13 @@ const findMaxAverage2 = (nums: number[], k: number): number => {
   }
   
   maxAverage = sum / k;
-  
-  for (let j = 1; j < nums.length - k; j++) {
-    const newSum = sum - nums[j-1] + nums[k+1];
+  console.log('maxAverage >>> ',maxAverage )
+  for (let j = 1; j <= nums.length - k; j++) {
+    const newSum = sum - nums[j-1] + nums[j+k-1];
+    console.log('sum >>>', sum);
+    console.log('nums[j-1] >>> ', nums[j-1]);
+    console.log('nums[j+k-1] >>> ', nums[j+k-1]);
+    console.log('newSum >>>', newSum);
     if ((newSum / k) > maxAverage) {
       maxAverage = (newSum / k);
     }
@@ -45,10 +49,19 @@ const k2 = 1;
 const nums3 = [-1];
 const k3 = 1;
 
-console.log('findMaxAverage (1) >>> ', findMaxAverage(nums1, k1));
-console.log('findMaxAverage (2) >>> ', findMaxAverage(nums2, k2));
-console.log('findMaxAverage (3) >>> ', findMaxAverage(nums3, k3));
+const nums4 = [0,1,1,3,3];
 
-console.log('findMaxAverage2 (1) >>> ', findMaxAverage2(nums1, k1));
-console.log('findMaxAverage2 (2) >>> ', findMaxAverage2(nums2, k2));
-console.log('findMaxAverage2 (3) >>> ', findMaxAverage2(nums3, k3));
+const nums5 = [4,2,1,3,3];
+const k5 = 2;
+
+// console.log('findMaxAverage (1) >>> ', findMaxAverage(nums1, k1));
+// console.log('findMaxAverage (2) >>> ', findMaxAverage(nums2, k2));
+// console.log('findMaxAverage (3) >>> ', findMaxAverage(nums3, k3));
+// console.log('findMaxAverage (4) >>> ', findMaxAverage(nums4, k1));
+// console.log('findMaxAverage (5) >>> ', findMaxAverage(nums5, k5));
+
+// console.log('findMaxAverage2 (1) >>> ', findMaxAverage2(nums1, k1));
+// console.log('findMaxAverage2 (2) >>> ', findMaxAverage2(nums2, k2));
+// console.log('findMaxAverage2 (3) >>> ', findMaxAverage2(nums3, k3));
+// console.log('findMaxAverage2 (4) >>> ', findMaxAverage2(nums4, k1));
+console.log('\n\nfindMaxAverage2 (5) >>> ', findMaxAverage2(nums5, k5), '\n\n');
