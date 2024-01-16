@@ -20,22 +20,21 @@ const findMaxAverage2 = (nums: number[], k: number): number => {
   if (nums.length < 2) { return nums[0] / k }
 
   let sum = 0;
-  let greatestSum = Number.NEGATIVE_INFINITY;
+  
 
   // Calculate first sum
   for (let i = 0; i < k; i++) {
     sum += nums[i];
   }
 
-  for (let j = 1; (j + k - 1) < nums.length; j++) {
-    console.log('\nj >>> ', j);
-    console.log('Sum >', sum);
-    console.log('Remove index>', j-1);
-    console.log('Add index>', j + k - 1)
-    const newSum = sum - nums[j-1] + nums[j+k-1];
-    console.log('newSum >>> ', newSum);
+  // Assume that the greatestSum is the first one
+  let greatestSum = sum;
 
-    if (newSum > greatestSum) { greatestSum = newSum }
+  // Slide the window calculating the new average
+  for (let j = k; j < nums.length; j++) {
+    const newSum = sum + nums[j] - nums[j - k];
+
+    greatestSum = Math.max(greatestSum, newSum);
   }
 
   return greatestSum/k;
@@ -57,16 +56,16 @@ const k5 = 2;
 
 const nums6 = [0,4,0,3,2];
 
-// console.log('findMaxAverage (1) >>> ', findMaxAverage(nums1, k1));
-// console.log('findMaxAverage (2) >>> ', findMaxAverage(nums2, k2));
-// console.log('findMaxAverage (3) >>> ', findMaxAverage(nums3, k3));
-// console.log('findMaxAverage (4) >>> ', findMaxAverage(nums4, k1));
-// console.log('findMaxAverage (5) >>> ', findMaxAverage(nums5, k5));
+console.log('findMaxAverage (1) >>> ', findMaxAverage(nums1, k1));
+console.log('findMaxAverage (2) >>> ', findMaxAverage(nums2, k2));
+console.log('findMaxAverage (3) >>> ', findMaxAverage(nums3, k3));
+console.log('findMaxAverage (4) >>> ', findMaxAverage(nums4, k1));
+console.log('findMaxAverage (5) >>> ', findMaxAverage(nums5, k5));
 console.log('findMaxAverage (6) >>> ', findMaxAverage(nums6, k3));
 
-// console.log('findMaxAverage2 (1) >>> ', findMaxAverage2(nums1, k1));
-// console.log('findMaxAverage2 (2) >>> ', findMaxAverage2(nums2, k2));
-// console.log('findMaxAverage2 (3) >>> ', findMaxAverage2(nums3, k3));
-// console.log('findMaxAverage2 (4) >>> ', findMaxAverage2(nums4, k1));
-// console.log('findMaxAverage2 (5) >>> ', findMaxAverage2(nums5, k5));
+console.log('findMaxAverage2 (1) >>> ', findMaxAverage2(nums1, k1));
+console.log('findMaxAverage2 (2) >>> ', findMaxAverage2(nums2, k2));
+console.log('findMaxAverage2 (3) >>> ', findMaxAverage2(nums3, k3));
+console.log('findMaxAverage2 (4) >>> ', findMaxAverage2(nums4, k1));
+console.log('findMaxAverage2 (5) >>> ', findMaxAverage2(nums5, k5));
 console.log('findMaxAverage2 (6) >>> ', findMaxAverage2(nums6, k3));
